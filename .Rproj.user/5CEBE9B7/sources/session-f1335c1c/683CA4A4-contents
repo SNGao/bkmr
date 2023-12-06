@@ -1,0 +1,19 @@
+url: https://sngao.github.io/bkmr/
+template:
+  bootstrap: 5
+  theme: breeze-light
+  bslib:
+    bg: '#202123'
+    fg: '#B8BCC2'
+    primary: '#306cc9'
+  navbar:
+    bg: primary
+    structure:
+      left: search
+      right:
+      - reference
+      - articles
+  footer:
+    structure:
+      left: developed_by
+      right: built_with
