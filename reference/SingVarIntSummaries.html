@@ -140,16 +140,16 @@
 <span class="r-in"><span><span class="co">## Typically should use a large number of iterations for inference</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">111</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">fitkm</span> <span class="op">&lt;-</span> <span class="fu"><a href="kmbayes.html">kmbayes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">y</span>, Z <span class="op">=</span> <span class="va">Z</span>, X <span class="op">=</span> <span class="va">X</span>, iter <span class="op">=</span> <span class="fl">100</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span>, varsel <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 10 (10% completed; 0.01051 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 20 (20% completed; 0.02022 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 30 (30% completed; 0.02984 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 40 (40% completed; 0.03989 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 50 (50% completed; 0.04939 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 60 (60% completed; 0.05888 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 70 (70% completed; 0.06832 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 80 (80% completed; 0.07778 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 90 (90% completed; 0.0872 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 100 (100% completed; 0.09662 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 10 (10% completed; 0.00874 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 20 (20% completed; 0.0185 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 30 (30% completed; 0.02821 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 40 (40% completed; 0.03784 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 50 (50% completed; 0.04747 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 60 (60% completed; 0.05704 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 70 (70% completed; 0.0666 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 80 (80% completed; 0.07615 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 90 (90% completed; 0.08572 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 100 (100% completed; 0.09742 secs elapsed)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">risks.int</span> <span class="op">&lt;-</span> <span class="fu">SingVarIntSummaries</span><span class="op">(</span>fit <span class="op">=</span> <span class="va">fitkm</span>, method <span class="op">=</span> <span class="st">"exact"</span><span class="op">)</span></span></span>
 </code></pre></div>
