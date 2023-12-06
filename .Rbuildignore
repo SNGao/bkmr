@@ -6,3 +6,7 @@
 ^.*\.DS_Store
 ^revdep$
 ^CRAN-SUBMISSION$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
