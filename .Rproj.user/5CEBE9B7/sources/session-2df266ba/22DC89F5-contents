@@ -1,0 +1,202 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+pdf('/Users/gsn/Desktop/demo_BKMR.pdf')
+## Estimation
+data2 <- read.csv('mixture.csv')
+data2$NUMBER = NULL
+data2$NAME = NULL
+
+a = which(colnames(data2) == 'AAMA_a')
+data2[,a:(a+4)] = scale(data2[,a:(a+4)], center = TRUE, scale = TRUE)
+which(colnames(data2) == 'AAMA_a')
+mixture<-as.matrix(data2[,a:(a+4)])
+y<-data2$Mets
+covariates<-as.matrix(data2[,2:a-2]) # 选择暴露变量
+
+set.seed(10)
+knots100  <- fields::cover.design(mixture, nd = 50)$design 
+# 用于估计的节点数
+
+## BKMR model
+library(bkmr)
+temp <-  kmbayes(y=y, Z=mixture, X=covariates, iter=100, verbose=FALSE, 
+                 varsel=TRUE, knots=knots100) # MCMC迭代100次后的拟合结果
+temp
+ExtractPIPs(temp) # 模拟数据集中的后验包含概率（越大越好）
+```
+
+```{r}
+## Trace plots and burning phase
+sel<-seq(0,100,by=1)
+TracePlot(fit = temp, par = "beta", sel=sel)
+#sel<-seq(100,1000,by=1)
+#TracePlot(fit = temp, par = "beta", sel=sel)
+```
+
+```{r}
+## Visualizing results
+pred.resp.univar <- PredictorResponseUnivar(fit=temp, sel=sel, 
+                                            method="approx")
+
+pred.resp.bivar  <- PredictorResponseBivar(fit=temp,  min.plot.dist = 1, 
+                                           sel=sel,  method="approx")
+
+pred.resp.bivar.levels <- PredictorResponseBivarLevels(pred.resp.df= 
+                        pred.resp.bivar,   Z = mixture, both_pairs=TRUE, 
+                        qs = c(0.25, 0.5, 0.75))
+
+risks.overall <- OverallRiskSummaries(fit=temp, qs=seq(0.25, 0.75, by=0.05), 
+                                      q.fixed = 0.5, method = "approx",
+                                      sel=sel)
+
+risks.singvar <- SingVarRiskSummaries(fit=temp, qs.diff = c(0.25, 0.75),
+                                      q.fixed = c(0.25, 0.50, 0.75), 
+                                      method = "approx")
+
+risks.int <- SingVarIntSummaries(fit=temp, qs.diff = c(0.25, 0.75),
+                                 qs.fixed = c(0.25, 0.75))
+```
+
+```{r}
+## Univariate dose-responses
+#pdf('/Users/gsn/Desktop/demo_BKMR.pdf')
+library(ggplot2)
+ggplot(pred.resp.univar, aes(z, est, ymin = est - 1.96*se, 
+                             ymax = est + 1.96*se)) + 
+  geom_smooth(stat = "identity") + ylab("h(z)") + facet_wrap(~ variable) 
+```
+
+
+```{r}
+## Bivariable Exposure-Response Functions
+ggplot(pred.resp.bivar, aes(z1, z2, fill = est)) + 
+  geom_raster() + 
+  facet_grid(variable2 ~ variable1) +
+  scale_fill_gradientn(colours=c("#0000FFFF","#FFFFFFFF","#FF0000FF")) +
+  xlab("expos1") +
+  ylab("expos2") +
+  ggtitle("h(expos1, expos2)")
+```
+
+```{r}
+## Interactions
+ggplot(pred.resp.bivar.levels, aes(z1, est)) + 
+  geom_smooth(aes(col = quantile), stat = "identity") + 
+ facet_grid(variable2 ~ variable1) +
+  ggtitle("h(expos1 | quantiles of expos2)") +
+ xlab("expos1")
+
+#dev.off()
+```
+
+```{r}
+ggplot(risks.overall, aes(quantile, est, ymin = est - 1.96*sd, ymax = est + 1.96*sd)) + 
+    geom_pointrange()
+```
+
+```{r}
+library(ggplot2)
+ggplot(risks.singvar, aes(variable, est, ymin = est - 1.96*sd, 
+                          ymax = est + 1.96*sd, col = q.fixed)) + 
+    geom_pointrange(position = position_dodge(width = 0.75)) + 
+  coord_flip()
+dev.off()
+```
+
+
+
+```{r}
+pdf('gQWS.pdf')
+#install.packages('qgcomp')
+library("qgcomp")
+set.seed(543210)
+qdat = read.csv('mixture.csv')
+head(qdat)
+qdat$NUMBER = NULL
+qdat$NAME = NULL
+y = qdat$Mets
+
+colnames(qdat)
+library(mgcv)
+str(qdat)
+reg.fit <- gam(Mets~DIABETES+SMOKE+SEX+s(age)+FAMINCOM5w
+               +xBMI+education+alcohol+bloodpressure+highglu
+               +highWAIST+fat+Lipoprotein+s(totalenergy)+s(totalscore)+METq
+               +s(AAMA_a)++s(AAMA_SUL_a)+s(GAMA_a)+s(ISO_GAMA_a)+s(DHPMA_a)
+               , data=qdat)
+summary(reg.fit) # 暴露物以外都不具有非线性
+                 # 暴露物仅DHPMA_a具有非线性
+
+a = which(colnames(qdat) == 'AAMA_a')
+qdat[,a:(a+4)] = scale(qdat[,a:(a+4)], center = TRUE, scale = TRUE)
+
+qgcomp(y~., expnms=c("AAMA_a","AAMA_SUL_a","GAMA_a","ISO_GAMA_a","DHPMA_a"), data=qdat)
+library("ggplot2")
+
+Xnm = c("AAMA_a","AAMA_SUL_a","GAMA_a","ISO_GAMA_a","DHPMA_a")
+# 含有协变量的模型
+qcboot.fit3 <- qgcomp.boot(Mets ~ .,
+                         expnms=Xnm,
+                         data = qdat[,c(Xnm, 'Mets')],
+                         family=binomial(), q=4,# B should be 200-500+ in practice
+                         seed=125)
+#qcboot.fit3$qx
+plot(qcboot.fit3)
+qcboot.fit3
+#pointwisebound.boot(qcboot.fit3, pointwiseref=4)
+
+qc.fit3 <- qgcomp.noboot(Mets ~ .,
+                         expnms=Xnm,
+                         data = qdat[,c(Xnm, 'Mets')], 
+                         family=binomial(), q=4)
+qc.fit3
+plot(qc.fit3)
+
+# 去除DHPMA_a暴露
+Xnm = c("AAMA_a","AAMA_SUL_a","GAMA_a","ISO_GAMA_a")
+# 含有协变量的模型
+qcboot.fit3 <- qgcomp.boot(Mets ~ .,
+                         expnms=Xnm,
+                         data = qdat[,c(Xnm, 'Mets')],
+                         family=binomial(), q=4,# B should be 200-500+ in practice
+                         seed=125)
+#qcboot.fit3$qx
+plot(qcboot.fit3)
+qcboot.fit3
+#pointwisebound.boot(qcboot.fit3, pointwiseref=4)
+
+qc.fit3 <- qgcomp.noboot(Mets ~ .,
+                         expnms=Xnm,
+                         data = qdat[,c(Xnm, 'Mets')], 
+                         family=binomial(), q=4)
+qc.fit3
+plot(qc.fit3)
+
+
+# 仅有DHPMA_a暴露
+Xnm = c("DHPMA_a")
+# 含有协变量的模型
+qcboot.fit3 <- qgcomp.boot(Mets ~ .,
+                         expnms=Xnm,
+                         data = qdat[,c(Xnm, 'Mets')],
+                         family=binomial(), q=4,# B should be 200-500+ in practice
+                         seed=125)
+#qcboot.fit3$qx
+plot(qcboot.fit3)
+qcboot.fit3
+#pointwisebound.boot(qcboot.fit3, pointwiseref=4)
+
+qc.fit3 <- qgcomp.noboot(Mets ~ .,
+                         expnms=Xnm,
+                         data = qdat[,c(Xnm, 'Mets')], 
+                         family=binomial(), q=4)
+qc.fit3
+plot(qc.fit3)
+
+dev.off()
+```
