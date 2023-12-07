@@ -63,14 +63,11 @@ fit
 PredictorResponseBivar(): #Predict the exposure-response function at a
 new grid of points
 
-PredictorResponseBivarLevels(): #Plot cross-sections of the bivariate
-predictor-response function
+PredictorResponseBivarLevels(): #Plot cross-sections of the bivariate predictor-response function
 
-PredictorResponseBivarPair(): #Plot bivariate predictor-response function
-on a new grid of points
+PredictorResponseBivarPair(): #Plot bivariate predictor-response function on a new grid of points
 
-PredictorResponseUnivar(): #Plot univariate predictor-response function
-on a new grid of points
+PredictorResponseUnivar(): #Plot univariate predictor-response function on a new grid of points
 
 SamplePred(): #Obtain posterior samples of predictions at new points
 SimData(): #Simulate dataset
