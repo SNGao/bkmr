@@ -1,8 +1,8 @@
 ---
-title: "functions"
+title: "Example analysis"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{functions}
+  %\VignetteIndexEntry{Example analysis}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
   %\VignetteBuilder: knitr
@@ -60,6 +60,10 @@ if (!require("here", quietly = TRUE)) {
 
 if (!require("ggplot2", quietly = TRUE)) {
     install.packages("ggplot2", repos = "http://cran.us.r-project.org")
+}
+
+if (!require("purrr", quietly = TRUE)) {
+    install.packages("purrr", repos = "http://cran.us.r-project.org")
 }
 ```
 
