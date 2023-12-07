@@ -1,0 +1,4 @@
+"0","    tuition_cost <- readr::read_csv('https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-03-10/tuition_cost.csv')
+"
+"2","Error in del_from:length(app$styles) : NA/NaN argument
+"
