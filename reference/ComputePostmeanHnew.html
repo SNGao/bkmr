@@ -119,16 +119,16 @@
 <span class="r-in"><span><span class="co">## Typically should use a large number of iterations for inference</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">111</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">fitkm</span> <span class="op">&lt;-</span> <span class="fu"><a href="kmbayes.html">kmbayes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">y</span>, Z <span class="op">=</span> <span class="va">Z</span>, X <span class="op">=</span> <span class="va">X</span>, iter <span class="op">=</span> <span class="fl">100</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span>, varsel <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 10 (10% completed; 0.01349 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 20 (20% completed; 0.02375 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 30 (30% completed; 0.03352 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 40 (40% completed; 0.04456 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 50 (50% completed; 0.05547 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 60 (60% completed; 0.06639 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 70 (70% completed; 0.07755 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 80 (80% completed; 0.0888 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 90 (90% completed; 0.10003 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 100 (100% completed; 0.11126 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 10 (10% completed; 0.01363 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 20 (20% completed; 0.0236 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 30 (30% completed; 0.03347 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 40 (40% completed; 0.04442 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 50 (50% completed; 0.05533 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 60 (60% completed; 0.06635 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 70 (70% completed; 0.07737 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 80 (80% completed; 0.08861 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 90 (90% completed; 0.09985 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 100 (100% completed; 0.11108 secs elapsed)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">med_vals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="va">Z</span>, <span class="fl">2</span>, <span class="va">median</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">Znew</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="va">med_vals</span>, nrow <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
