@@ -1,8 +1,8 @@
 ---
-title: "Example analysis"
+title: "Example_analysis"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Example analysis}
+  %\VignetteIndexEntry{Example_analysis}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
   %\VignetteBuilder: knitr
@@ -37,7 +37,7 @@ library(bkmr)
 -   Try to use Bayesian kernel machine regression to explore unlinear assocition between multivariables and cost.
 
 ### Original Data
--   Data was downloaded from TidyTuesday. The data this week comes from many different sources but originally came from the US Department of Education. Tuition and fees by college/university for 2018-2019, along with school type, degree length, state, in-state vs out-of-state from the Chronicle of Higher Education. [Data Source](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-03-10/readme.md#data-dictionary)
+-   Data was downloaded from TidyTuesday. The data this week comes from many different sources but originally came from the US Department of Education. Tuition and fees by college/university for 2018-2019, along with school type, degree length, state, in-state vs out-of-state from the Chronicle of Higher Education. [Data Source](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-03-10/readme.md)
 
 ### Data Dictionary
 -   Here is a data dictionary for what all the column names mean: \ 
@@ -69,8 +69,6 @@ if (!require("purrr", quietly = TRUE)) {
 
 
 ```{r, warning=FALSE}
-#install.packages('tidytuesdayR', repos = "http://cran.us.r-project.org")
-library(tidytuesdayR)
 library(here)
 library(purrr)
 

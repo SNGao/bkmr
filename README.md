@@ -18,7 +18,7 @@ examples are provided in [Bobb et al.
 
 **Original R package came from** [Link](https://github.com/jenfb/bkmr)
 
-**Deployed Website** [Link]()
+**Deployed Website** [Link](https://sngao.github.io/bkmr/articles/Example%20analysis.html)
 
 ### Customized things in pkgdown website
 
