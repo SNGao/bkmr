@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
 ### Basic information
 
 **Title:** BKMR
@@ -47,51 +41,52 @@ examples are provided in [Bobb et al.
       right: built_with # Specifies content on the right side of the footer
 ```
 
-#### Exported function
-
-ComputePostmeanHnew(): Compute the posterior mean and variance of h at a
+#### Exported function list
+```r
+ComputePostmeanHnew():  #Compute the posterior mean and variance of h at a
 new predictor values
 
-ExtractEsts(): Extract summary statistics
+ExtractEsts(): #Extract summary statistics
 
-ExtractPIPs(): Extract posterior inclusion probabilities (PIPs) from
+ExtractPIPs(): #Extract posterior inclusion probabilities (PIPs) from
 BKMR model fit
 
-ExtractSamps(): Extract samples
+ExtractSamps(): #Extract samples
 
-InvestigatePrior(): Investigate prior
+InvestigatePrior(): #Investigate prior
 
-OverallRiskSummaries(): Calculate overall risk summaries
+OverallRiskSummaries(): #Calculate overall risk summaries
 
-PlotPriorFits(): Plot of exposure-response function from univariate KMR
+PlotPriorFits(): #Plot of exposure-response function from univariate KMR
 fit
 
-PredictorResponseBivar(): Predict the exposure-response function at a
+PredictorResponseBivar(): #Predict the exposure-response function at a
 new grid of points
 
-PredictorResponseBivarLevels(): Plot cross-sections of the bivariate
+PredictorResponseBivarLevels(): #Plot cross-sections of the bivariate
 predictor-response function
 
-PredictorResponseBivarPair(): Plot bivariate predictor-response function
+PredictorResponseBivarPair(): #Plot bivariate predictor-response function
 on a new grid of points
 
-PredictorResponseUnivar(): Plot univariate predictor-response function
+PredictorResponseUnivar(): #Plot univariate predictor-response function
 on a new grid of points
 
-SamplePred(): Obtain posterior samples of predictions at new points
-SimData(): Simulate dataset
+SamplePred(): #Obtain posterior samples of predictions at new points
+SimData(): #Simulate dataset
 
-SingVarIntSummaries(): Single Variable Interaction Summaries
+SingVarIntSummaries(): #Single Variable Interaction Summaries
 
-SingVarRiskSummaries(): Single Variable Risk Summaries
+SingVarRiskSummaries(): #Single Variable Risk Summaries
 
-TracePlot(): Trace plot
+TracePlot(): #Trace plot
 
-kmbayes(): Fit Bayesian kernel machine regression
+kmbayes(): #Fit Bayesian kernel machine regression
 
-print(<bkmrfit>): Print basic summary of BKMR model fit
+print(<bkmrfit>): #Print basic summary of BKMR model fit
 
-summary(<bkmrfit>): Summarizing BKMR model fits
+summary(<bkmrfit>): #Summarizing BKMR model fits
+```
 
 ### A basic example with one of the functions (fitkm).
 
