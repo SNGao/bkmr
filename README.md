@@ -25,7 +25,7 @@ examples are provided in [Bobb et al.
 ``` r
   theme: breeze-light  # using the "breeze-light" theme
   bslib:
-    bg: '#202123' # Specifies the background color for the website.
+    bg: '#F5F5F5' # Specifies the background color for the website.
     fg: '#B8BCC2' # Specifies the foreground (text) color for the website.
     primary: '#306cc9' # Specifies the primary color used for links and other elements.
   navbar:
