@@ -69,6 +69,7 @@ if (!require("purrr", quietly = TRUE)) {
 
 
 ```{r, warning=FALSE}
+#install.packages('tidytuesdayR', repos = "http://cran.us.r-project.org")
 library(tidytuesdayR)
 library(here)
 library(purrr)
@@ -91,7 +92,6 @@ if (!file.exists(here("data", "tuesdata_tution_cost.csv"))) {
     write.csv(tuesdata$tuition_income, file = here('data', 'tuesdata_tuition_income.csv'))
     
 }
-tuesdata
 ## Read in the data locally each time you knit/render
 tuition_cost <- read.csv(here("data", "tuesdata_tuition_cost.csv")); tuition_cost$X = NULL
 tuition_income <- read.csv(here("data", "tuesdata_tuition_income.csv")); tuition_income$X = NULL
