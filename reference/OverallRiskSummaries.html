@@ -24,7 +24,7 @@
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/Example%20analysis.html">Example analysis</a>
+    <a class="dropdown-item" href="../articles/Example_analysis.html">Example_analysis</a>
   </div>
 </li>
 <li class="nav-item">
@@ -131,16 +131,16 @@
 <span class="r-in"><span><span class="co">## Typically should use a large number of iterations for inference</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">111</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">fitkm</span> <span class="op">&lt;-</span> <span class="fu"><a href="kmbayes.html">kmbayes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">y</span>, Z <span class="op">=</span> <span class="va">Z</span>, X <span class="op">=</span> <span class="va">X</span>, iter <span class="op">=</span> <span class="fl">100</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span>, varsel <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 10 (10% completed; 0.00481 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 20 (20% completed; 0.00997 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 30 (30% completed; 0.02366 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 40 (40% completed; 0.02917 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 50 (50% completed; 0.03478 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 60 (60% completed; 0.0402 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 70 (70% completed; 0.04563 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 80 (80% completed; 0.05837 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 90 (90% completed; 0.0644 secs elapsed)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 100 (100% completed; 0.06999 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 10 (10% completed; 0.00538 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 20 (20% completed; 0.01068 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 30 (30% completed; 0.01618 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 40 (40% completed; 0.02136 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 50 (50% completed; 0.02654 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 60 (60% completed; 0.0318 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 70 (70% completed; 0.03693 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 80 (80% completed; 0.04206 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 90 (90% completed; 0.04749 secs elapsed)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration: 100 (100% completed; 0.06039 secs elapsed)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">risks.overall</span> <span class="op">&lt;-</span> <span class="fu">OverallRiskSummaries</span><span class="op">(</span>fit <span class="op">=</span> <span class="va">fitkm</span>, qs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0.75</span>, by <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span>, </span></span>
 <span class="r-in"><span>q.fixed <span class="op">=</span> <span class="fl">0.5</span>, method <span class="op">=</span> <span class="st">"exact"</span><span class="op">)</span></span></span>
