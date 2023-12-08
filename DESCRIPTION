@@ -23,12 +23,7 @@ Imports:
     MASS,
     tmvtnorm,
     tibble,
-    here,
-    purrr,
-    tidyverse,
-    stringr,
-    tidytuesdayR,
-    ggplot2
+    tidytuesdayR
 RoxygenNote: 7.2.2
 Suggests: 
     knitr,
