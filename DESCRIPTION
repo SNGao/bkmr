@@ -22,7 +22,7 @@ Imports:
     tidyr,
     MASS,
     tmvtnorm,
-    tidytuesdayR,
+    here,
     tibble
 RoxygenNote: 7.2.2
 Suggests: 
