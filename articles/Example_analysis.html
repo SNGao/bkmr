@@ -389,25 +389,25 @@ reference</a></p>
 <span><span class="va">Z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">data_unique</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">8</span><span class="op">)</span><span class="op">]</span>,<span class="op">)</span>, <span class="va">dat</span><span class="op">$</span><span class="va">Z</span><span class="op">)</span></span>
 <span><span class="va">X</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">data_unique</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="va">fitkm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/kmbayes.html">kmbayes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">y</span>, Z <span class="op">=</span> <span class="va">Z</span>, X <span class="op">=</span> <span class="va">X</span>, iter <span class="op">=</span> <span class="fl">1000</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span>, varsel <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Iteration: 100 (10% completed; 2.4747 secs elapsed)</span></span>
-<span><span class="co">#&gt; Iteration: 200 (20% completed; 4.84559 secs elapsed)</span></span>
-<span><span class="co">#&gt; Iteration: 300 (30% completed; 7.29754 secs elapsed)</span></span>
-<span><span class="co">#&gt; Iteration: 400 (40% completed; 9.66106 secs elapsed)</span></span>
-<span><span class="co">#&gt; Iteration: 500 (50% completed; 12.02762 secs elapsed)</span></span>
-<span><span class="co">#&gt; Iteration: 600 (60% completed; 14.48249 secs elapsed)</span></span>
-<span><span class="co">#&gt; Iteration: 700 (70% completed; 16.84234 secs elapsed)</span></span>
-<span><span class="co">#&gt; Iteration: 800 (80% completed; 19.19864 secs elapsed)</span></span>
-<span><span class="co">#&gt; Iteration: 900 (90% completed; 21.66073 secs elapsed)</span></span>
-<span><span class="co">#&gt; Iteration: 1000 (100% completed; 24.01741 secs elapsed)</span></span>
+<span><span class="co">#&gt; Iteration: 100 (10% completed; 2.49247 secs elapsed)</span></span>
+<span><span class="co">#&gt; Iteration: 200 (20% completed; 4.85539 secs elapsed)</span></span>
+<span><span class="co">#&gt; Iteration: 300 (30% completed; 7.19379 secs elapsed)</span></span>
+<span><span class="co">#&gt; Iteration: 400 (40% completed; 9.61304 secs elapsed)</span></span>
+<span><span class="co">#&gt; Iteration: 500 (50% completed; 11.9123 secs elapsed)</span></span>
+<span><span class="co">#&gt; Iteration: 600 (60% completed; 14.22316 secs elapsed)</span></span>
+<span><span class="co">#&gt; Iteration: 700 (70% completed; 16.64419 secs elapsed)</span></span>
+<span><span class="co">#&gt; Iteration: 800 (80% completed; 19.08055 secs elapsed)</span></span>
+<span><span class="co">#&gt; Iteration: 900 (90% completed; 21.48126 secs elapsed)</span></span>
+<span><span class="co">#&gt; Iteration: 1000 (100% completed; 24.00408 secs elapsed)</span></span>
 <span><span class="fu"><a href="../reference/ExtractPIPs.html">ExtractPIPs</a></span><span class="op">(</span><span class="va">fitkm</span><span class="op">)</span></span>
 <span><span class="co">#&gt;         variable   PIP</span></span>
 <span><span class="co">#&gt; 1 room_and_board 1.000</span></span>
 <span><span class="co">#&gt; 2  degree_length 1.000</span></span>
-<span><span class="co">#&gt; 3          state 0.662</span></span>
-<span><span class="co">#&gt; 4             z1 0.326</span></span>
-<span><span class="co">#&gt; 5             z2 0.516</span></span>
-<span><span class="co">#&gt; 6             z3 0.000</span></span>
-<span><span class="co">#&gt; 7             z4 0.096</span></span>
+<span><span class="co">#&gt; 3          state 0.680</span></span>
+<span><span class="co">#&gt; 4             z1 0.168</span></span>
+<span><span class="co">#&gt; 5             z2 0.178</span></span>
+<span><span class="co">#&gt; 6             z3 0.262</span></span>
+<span><span class="co">#&gt; 7             z4 0.004</span></span>
 <span><span class="co"># A posteriori inclusion probability in a simulated data set (the bigger the better)</span></span>
 <span><span class="co">#TracePlot(fit = fitkm, par = "r", comp = 1)</span></span>
 <span><span class="co">#TracePlot(fit = fitkm, par = "sigsq.eps")</span></span>
